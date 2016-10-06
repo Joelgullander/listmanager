@@ -1,0 +1,39 @@
+* {
+  border-radius: 0 !important;
+}
+.main-wrapper{
+  margin-top: 70px;
+}
+
+table.your-list thead{
+    background: #000;
+    color: #fff;
+    background-image: -webkit-linear-gradient(top,#3c3c3c 0,#222 100%);
+    background-image: -o-linear-gradient(top,#3c3c3c 0,#222 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));
+    background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+}
+table.your-list tr td{
+    padding: 20px;
+}
+table.your-list tr{
+    cursor: pointer;
+}
+table.your-list tr:hover{
+  opacity: .5;
+  transition: opacity 1s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+.modal{
+  top: 20%;
+}
