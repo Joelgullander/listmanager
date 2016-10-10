@@ -17,6 +17,7 @@ $db = null;
 if($count)
 {
 $_SESSION['id']=$data->id; // Storing user session value
+$_SESSION['permission']=$data->permission; // Defining user permission group
 return true;
 }
 else

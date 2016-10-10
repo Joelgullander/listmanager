@@ -1,45 +1,10 @@
-﻿<?php include("partials/header.php"); ?>
+<?php include("partials/header.php"); ?>
 <div class="main-wrapper">
   <div class="container">
     <div class="row">      
-      <div class="addToList">
-        <div class="col-sm-12" style="margin: 0 auto">
-          <form id="newEntry" class="form-horizontal">
-            <div class="form-group">
-              <label for="inputFirstname" class="col-sm-12">Förnamn</label>
-              <div class="col-sm-12">
-                <input type="text" class="form-control" name="inputFirstname" placeholder="Förnamn">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputLastname" class="col-sm-12">Efternamn</label>
-              <div class="col-sm-12">
-                <input type="text" class="form-control" name="inputLastname" placeholder="Efternamn">
-              </div>
-            </div>
-              <div class="form-group">
-              <label for="inputAmount" class="col-sm-12">Antal</label>
-              <div class="col-sm-12">
-                <select name="inputAmount" class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary">Lägg till</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
       <div class="col-sm-12">
-        <h1> Din lista </h1>
-        <table class="table your-list"> 
+        <h1>Granska lista</h1>
+        <table class="table approve-list">> 
           <thead> 
             <tr> 
               <th>Förnamn</th> 

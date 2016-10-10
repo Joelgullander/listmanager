@@ -2,6 +2,10 @@ $(function(){
     renderUserList();
     newEntry();
     updateEntry();
+    
+    
+    // Ska flyttas till säkrare fil senare ( admin permissions )
+    getunapprovedEntrys();
 });
 
 function newEntry(){
@@ -17,7 +21,6 @@ function newEntry(){
             success: function(data){
                 $(".your-list tbody").empty().hide();;
                 renderUserList();
-                //  $(".your-list").append('<tr class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td>' + data[key]["firstname"] + '</td> <td>' + data[key]["lastname"] + '</td> <td>' + data[key]["amount"] + '</td>')
             }
         });
         
@@ -53,12 +56,10 @@ function updateEntry(){
                     $(".your-list tbody").empty().hide();;
                     renderUserList();
                     modal.find(".close").click();
-                    //  $(".your-list").append('<tr class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td>' + data[key]["firstname"] + '</td> <td>' + data[key]["lastname"] + '</td> <td>' + data[key]["amount"] + '</td>')
                 }
             });
             
         });
-        //alert(entryID);
     });
 }
 
@@ -73,9 +74,39 @@ function renderUserList(){
                     $(".your-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td>').fadeIn();
                 }
             }
-            //
-            //console.log(data);
-            //return true;
+        }
+    });
+}
+
+function getunapprovedEntrys(){
+    if($("table.approve-list").length){
+        $.ajax({
+            url: "api/unapprovedentrys.php",
+            method: "GET",
+            success: function(data){
+                data = $.parseJSON(data);
+                for (var key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        $(".approve-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td>').fadeIn();
+                    }
+                }
+            }
+        });
+    } else {
+        
+    }
+}
+function approvelistEntrys(){
+    $.ajax({
+        url: "api/listentrys.php",
+        method: "GET",
+        success: function(data){
+            data = $.parseJSON(data);
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    $(".your-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td>').fadeIn();
+                }
+            }
         }
     });
 }
