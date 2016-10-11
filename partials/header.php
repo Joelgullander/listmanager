@@ -3,6 +3,7 @@
   <head>
     <title>List manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 	<!-- Optional theme -->
@@ -14,6 +15,8 @@
   <?php 
     include('config.php');
     include('session.php');
+    $userDetails=$userClass->userDetails($session_uid);
+
   ?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -31,8 +34,12 @@
               <li class="active"><a href="mylist.php">Home</a></li>
               <li><a href="add.php">Lägg till</a></li>
               <li><a href="admin.php">Admin</a></li>
-              <li style="display:none" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown" style="float:right;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <?php echo $userDetails->username; ?>
+                <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
@@ -43,6 +50,7 @@
                   <li><a href="#">One more separated link</a></li>
                 </ul>
               </li>
+              
             </ul>
           </div><!--/.nav-collapse -->
         </div>

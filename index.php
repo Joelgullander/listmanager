@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>List manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 	<!-- Optional theme -->

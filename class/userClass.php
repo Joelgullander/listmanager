@@ -69,7 +69,7 @@ public function userDetails($uid)
 {
 try{
 $db = getDB();
-$stmt = $db->prepare("SELECT email,username,name FROM users WHERE id=:uid"); 
+$stmt = $db->prepare("SELECT username FROM users WHERE id=:uid"); 
 $stmt->bindParam("uid", $uid,PDO::PARAM_INT);
 $stmt->execute();
 $data = $stmt->fetch(PDO::FETCH_OBJ); //User data

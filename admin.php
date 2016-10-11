@@ -4,12 +4,13 @@
     <div class="row">      
       <div class="col-sm-12">
         <h1>Granska lista</h1>
-        <table class="table approve-list">> 
+        <table class="table approve-list">
           <thead> 
             <tr> 
               <th>Förnamn</th> 
               <th>Efternamn</th> 
-              <th>Antal</th> 
+              <th>Antal</th>
+              <th>Ambassadör</th>
             </tr> 
           </thead> 
           <tbody>
@@ -58,7 +59,8 @@
             </div>
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary">Spara ändringar</button>
+                <button type="submit" class="btn btn-success">Godkänn</button>
+                <button type="submit" class="btn btn-danger" style="float:right">Neka</button>
               </div>
             </div>
           </form>
