@@ -9,12 +9,24 @@
         $lastname=$_POST['inputLastname'];
         $amount=$_POST['inputAmount'];
         $entryID=$_POST['entryID'];
-        $sth = $db->prepare('UPDATE listentrys SET firstname=:firstname, lastname=:lastname, amount=:amount WHERE id=:entryID');
+        $age=$_POST['inputAge'];
+        $comment=$_POST['inputComment'];
+        
+        //Fulhack, måste göras snyggare :D
+        if ($age == "Ja"){
+            $age = 0;
+        } else {
+            $age = 1;
+        }
+        
+        $sth = $db->prepare('UPDATE listentrys SET firstname=:firstname, lastname=:lastname, amount=:amount, comment=:comment, age=:age WHERE id=:entryID');
         $sth->execute(array(
             ':firstname' => $firstname,
             ':lastname' => $lastname,
             ':amount' => $amount,
-            ':entryID' => $entryID
+            ':entryID' => $entryID,
+            ':comment' => $comment,
+            ':age' => $age
         ));
     }
 ?>

@@ -15,12 +15,24 @@
         $firstname=$_POST['inputFirstname'];
         $lastname=$_POST['inputLastname'];
         $amount=$_POST['inputAmount'];
-        $sth = $db->prepare('INSERT INTO listentrys (userID, firstname, lastname, amount) VALUES (:userID, :firstname, :lastname, :amount)');
+        $age=$_POST['inputAge'];
+        $comment=$_POST['inputComment'];
+        
+        //Fulhack, måste göras snyggare :D
+        if ($age == "Ja"){
+            $age = 0;
+        } else {
+            $age = 1;
+        }
+        
+        $sth = $db->prepare('INSERT INTO listentrys (userID, firstname, lastname, amount, comment, age) VALUES (:userID, :firstname, :lastname, :amount, :comment, :age)');
         $sth->execute(array(
             ':userID' => $loggedinUser,
             ':firstname' => $firstname,
             ':lastname' => $lastname,
-            ':amount' => $amount
+            ':amount' => $amount,
+            ':comment' => $comment,
+            ':age' => $age
         ));
     }
 ?>
