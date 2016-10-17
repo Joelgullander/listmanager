@@ -7,6 +7,12 @@ body{
   margin-right: 15px;
 }
 
+.search{
+  padding: 10px;
+  width: 100%;
+  border: none;
+  font-size: 25px;
+}
 #newEntry label{
   margin-top: 15px;
 }
@@ -35,7 +41,17 @@ table.your-list tr:hover{
 
 
 
-
+.dashboard article{
+  background: #fff;
+  padding: 15px 10px;;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.dashboard article h2{
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
 
 
 

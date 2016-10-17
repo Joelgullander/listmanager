@@ -31,8 +31,10 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="mylist.php">Home</a></li>
-              <li><a href="moderate.php">Granska</a></li>
+              <li class="active"><a href="home.php">Home</a></li>
+              <li><a href="mylist.php">Din lista</a></li>
+              <li><a href="doorlist.php">Dörrlista</a></li>
+              <li><a href="vip.php">VIP</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown" style="float:right;">
@@ -40,7 +42,8 @@
                 <?php echo $userDetails->username; ?>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li class="disabled"><a href="#" class="disabled">Hjälp</a></li>
+                  <li><a href="moderate.php">Granska</a></li>
+                  <li><a href="help.php">Hjälp</a></li>
                   <li class="disabled"><a href="#" class="disabled">Statistik</a></li>
                   <!--<li role="separator" class="divider"></li>
                   <li class="dropdown-header"></li>-->
