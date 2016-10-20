@@ -1,8 +1,16 @@
-<?php include("partials/header.php"); ?>
+<?php 
+include("partials/header.php"); 
+if($session_permission != 3)
+{
+$url=BASE_URL.'listmanager/home.php';
+header("Location: $url"); // Page redirecting to home.php 
+}
+?>
+
 <div class="main-wrapper">
   <div class="container">
     <div class="row">      
-      <div class="col-sm-12">
+      <div class="door-list col-sm-12">
         <h1>Dörrlista</h1>
         
         <input class="search" type="search" name="search" placeholder="Sök" />

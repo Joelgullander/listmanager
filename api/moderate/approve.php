@@ -1,7 +1,7 @@
 <?php
     if($_POST) {
-        require("../config.php");
-        include('../session.php');
+        require("../../config.php");
+        include('../../session.php');
         
         $loggedinUser = $_SESSION['id'];
         $db = getDB();

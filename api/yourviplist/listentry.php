@@ -1,10 +1,10 @@
 <?php
-	require	("../config.php");
-    include('../session.php');
+	require	("../../config.php");
+    include('../../session.php');
     $entryID = $_GET['entryID'];
     $db = getDB();
     
-    $sth = $db->prepare('SELECT * FROM listentrys WHERE id = :entryID');
+    $sth = $db->prepare('SELECT * FROM vipentrys WHERE id = :entryID');
     $sth->bindParam(':entryID', $entryID, PDO::PARAM_STR);
     $sth->execute();
     $results=$sth->fetchAll(PDO::FETCH_ASSOC);

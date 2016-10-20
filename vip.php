@@ -2,10 +2,10 @@
 <div class="main-wrapper">
   <div class="container">
     <div class="row">      
-      <h1>Ordinarie</h1>
+      <h1> VIP </h1>
       <div class="addToList">
         <div style="margin: 0 auto">
-          <form id="newEntry" class="form-horizontal">
+          <form id="newVipEntry" class="form-horizontal">
             <div class="row">
             <div class="col-sm-6">
               <label for="inputFirstname">Förnamn</label>
@@ -17,7 +17,7 @@
             </div>
             </div>
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-sm-12">
               <label for="inputAmount">Antal</label>
               <select name="inputAmount" class="form-control">
                 <option>1</option>
@@ -26,15 +26,7 @@
                 <option>4</option>
                 <option>5</option>
               </select>
-            </div>
-            <div class="col-sm-6">
-              <label>Är sällskapet över 22?</label>
-              <select name="inputAge" class="form-control">
-                    <option>Ja</option>
-                    <option>Nej</option>
-              </select>
-
-            </div>  
+            </div> 
             </div>
             <div class="row">
               <div class="col-sm-12">
@@ -54,7 +46,7 @@
       <div class="row">
       <div class="col-sm-12">
         <h1> Din lista </h1>
-        <table class="table your-list"> 
+        <table class="table your-viplist"> 
           <thead> 
             <tr> 
               <th>Förnamn</th> 
@@ -101,15 +93,6 @@
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputAmount" class="col-sm-12">Är sällskapet över 22?</label>
-              <div class="col-sm-12">
-                <select name="inputAge" class="form-control">
-                  <option>Ja</option>
-                  <option>Nej</option>
                 </select>
               </div>
             </div>

@@ -16,8 +16,8 @@
     include('config.php');
     include('session.php');
     $userDetails=$userClass->userDetails($session_uid);
-
   ?>
+ 
 <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
@@ -27,14 +27,17 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="mylist.php">Prive</a>
+            <a class="navbar-brand" href="home.php">Prive</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="home.php">Home</a></li>
-              <li><a href="mylist.php">Din lista</a></li>
-              <li><a href="doorlist.php">Dörrlista</a></li>
+              <li><a href="mylist.php">Ordinarie</a></li>
               <li><a href="vip.php">VIP</a></li>
+              <?php if($session_permission == 3){?>
+              <li><a href="doorlist.php">Dörrlista</a></li>
+              <li><a href="viplist.php">VIP lista</a></li>
+              <?php } ?>
+              
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown" style="float:right;">
@@ -42,7 +45,12 @@
                 <?php echo $userDetails->username; ?>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                  <?php if($session_permission == 3){?>
                   <li><a href="moderate.php">Granska</a></li>
+                  <?php } ?>
+                  <?php if($session_permission == 3){?>
+                  <li><a href="admin.php">Admin</a></li>
+                  <?php } ?>
                   <li><a href="help.php">Hjälp</a></li>
                   <li class="disabled"><a href="#" class="disabled">Statistik</a></li>
                   <!--<li role="separator" class="divider"></li>

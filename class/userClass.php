@@ -7,7 +7,7 @@ public function userLogin($usernameEmail,$password)
 try{
 $db = getDB();
 $hash_password= hash('sha256', $password); //Password encryption
-$stmt = $db->prepare("SELECT id FROM users WHERE (username=:usernameEmail) AND password=:hash_password"); 
+$stmt = $db->prepare("SELECT id, permission FROM users WHERE (username=:usernameEmail) AND password=:hash_password"); 
 $stmt->bindParam("usernameEmail", $usernameEmail,PDO::PARAM_STR) ;
 $stmt->bindParam("hash_password", $hash_password,PDO::PARAM_STR) ;
 $stmt->execute();
@@ -18,6 +18,7 @@ if($count)
 {
 $_SESSION['id']=$data->id; // Storing user session value
 $_SESSION['permission']=$data->permission; // Defining user permission group
+
 return true;
 }
 else

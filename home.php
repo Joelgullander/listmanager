@@ -24,9 +24,9 @@
                 1000
             </div>
             <div class="statistic">
-                Gäster inne på privé
+                Personer på gästlista:
                 <br />
-                257
+                <span class="listamount"> </span>
             </div>
         </div>
     </div>

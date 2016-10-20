@@ -1,6 +1,7 @@
 <?php
 if(!empty($_SESSION['id']))
 {
+$session_permission=$_SESSION['permission'];
 $session_uid=$_SESSION['id'];
 include('class/userClass.php');
 $userClass = new userClass();

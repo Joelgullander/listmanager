@@ -6,12 +6,15 @@ $url=BASE_URL.'listmanager/home.php';
 header("Location: $url"); // Page redirecting to home.php 
 }
 ?>
+
 <div class="main-wrapper">
   <div class="container">
     <div class="row">      
-      <div class="col-sm-12">
-        <h1>Granska lista</h1>
-        <table class="table approve-list">
+      <div class="vip-list col-sm-12">
+        <h1>VIP lista</h1>
+        
+        <input class="search" type="search" name="search" placeholder="Sök" />
+        <table class="table vip-list">
           <thead> 
             <tr> 
               <th>Förnamn</th> 
@@ -33,22 +36,10 @@ header("Location: $url"); // Page redirecting to home.php
     <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
-        <h4 class="modal-title" id="myModalLabel">Uppdatera sällskap</h4>
+        <h4 class="modal-title" id="myModalLabel">Status</h4>
         </div>
         <div class="modal-body">
           <form id="editEntry" class="form-horizontal">
-            <div class="form-group">
-              <label for="inputFirstname" class="col-sm-12">Förnamn</label>
-              <div class="col-sm-12">
-                <input type="text" class="form-control" name="inputFirstname" placeholder="Förnamn">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputLastname" class="col-sm-12">Efternamn</label>
-              <div class="col-sm-12">
-                <input type="text" class="form-control" name="inputLastname" placeholder="Efternamn">
-              </div>
-            </div>
               <div class="form-group">
               <label for="inputAmount" class="col-sm-12">Antal</label>
               <div class="col-sm-12">
@@ -62,17 +53,8 @@ header("Location: $url"); // Page redirecting to home.php
               </div>
             </div>
             <div class="form-group">
-              <label for="inputAmount" class="col-sm-12">Är sällskapet över 22?</label>
               <div class="col-sm-12">
-                <select name="inputAge" class="form-control">
-                  <option>Ja</option>
-                  <option>Nej</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-12">
-                <label for="inputComment">Kommentar (valfritt)</label>
+                <label for="inputComment">Kommentar</label>
                 <textarea class="form-control" name="inputComment" placeholder="Kommentar" cols="40" rows="5"></textarea>
               </div>
             </div>
