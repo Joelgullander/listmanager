@@ -233,7 +233,7 @@ function getdoorlist(){
                 data = $.parseJSON(data);
                 for (var key in data) {
                     if (data.hasOwnProperty(key)) {
-                        $(".door-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td> <td class="amba">' + data[key]["username"] + '</td> <td>' + (data[key]["age"] == 1 ? "Under 22" : "Över 22") + '</td>').fadeIn();
+                        $(".door-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' +  (data[key]["status"] == 0 ? "warning" : "" || data[key]["status"] == 1 ? "success" : "" || data[key]["status"] == 2 ? "danger" : "") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td> <td class="amba">' + data[key]["username"] + '</td> <td>' + (data[key]["age"] == 1 ? "Under 22" : "Över 22") + '</td>').fadeIn();
                     }
                 }
             }
@@ -333,6 +333,7 @@ function searchdoorlist(){
                 success: function(data){
                     data = $.parseJSON(data);
                     for (var key in data) {
+                        console.log(data[key]["firstname"])
                         if (data.hasOwnProperty(key)) {
                             $(".your-viplist tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["status"] == 0 ? "warning" : "" || data[key]["status"] == 1 ? "success" : "" || data[key]["status"] == 2 ? "danger" : "") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td>').fadeIn();
                         }
@@ -430,7 +431,7 @@ function getviplist(){
                 data = $.parseJSON(data);
                 for (var key in data) {
                     if (data.hasOwnProperty(key)) {
-                        $(".vip-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["approved"] == 1 ? "success" : "warning") + '" id="' + data[key]["id"] +'"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td> <td class="amba">' + data[key]["username"] + '</td>').fadeIn();
+                        $(".vip-list tbody").append('<tr data-toggle="modal" data-target="#editEntry" class="' + (data[key]["status"] == 0 ? "warning" : "" || data[key]["status"] == 1 ? "success" : "" || data[key]["status"] == 2 ? "danger" : "") +'" id="' + data[key]["id"] + '"> <td class="firstname">' + data[key]["firstname"] + '</td> <td class="lastname">' + data[key]["lastname"] + '</td> <td class="amount">' + data[key]["amount"] + '</td> <td class="amba">' + data[key]["username"] + '</td>').fadeIn();
                     }
                 }
             }
@@ -441,7 +442,7 @@ function getviplist(){
 }
 
 function confirmvipEntry(){
-    var entry = ".door-list tbody tr";
+    var entry = ".vip-list tbody tr";
     
     $(document).on('click', entry , function(){
         var me = $(this);
@@ -477,7 +478,7 @@ function confirmvipEntry(){
                 method: "POST",
                 data: form.serialize(), 
                 success: function(data){
-                    $(".approve-list tbody").empty().hide();;
+                    $(".vip-list tbody").empty().hide();;
                     getunapprovedEntrys();
                     modal.find(".close").click();
                 }

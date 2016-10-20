@@ -30,7 +30,8 @@ table.vip-list thead{
 }
 table.your-list tr td,
 table.your-viplist tr td,
-table.door-list tr td{
+table.door-list tr td,
+table.vip-list tr td{
     padding: 20px;
     background: #fff;
 }
